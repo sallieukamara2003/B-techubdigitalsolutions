@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional IT support services from B-Tech Digital Solutions.">
+    <title>IT Support | B-Tech Digital Solutions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --blue: #071a45;
+            --blue-light: #123b82;
+            --yellow: #f7c928;
+            --yellow-light: #fff8d8;
+            --white: #ffffff;
+            --text: #273654;
+            --muted: #69758e;
+            --border: #e5eaf3;
+            --shadow: 0 18px 45px rgba(7, 26, 69, .12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-width: 320px;
+            color: var(--text);
+            background: #f7f9fd;
+            font-family: "DM Sans", Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .top-bar {
+            padding: 9px 6%;
+            color: rgba(255, 255, 255, .85);
+            background: var(--blue);
+            text-align: right;
+            font-size: .82rem;
+        }
+
+        .top-bar i {
+            margin-right: 7px;
+            color: var(--yellow);
+        }
+
+        header {
+            padding: 18px 6%;
+            background: var(--white);
+        }
+
+        .nav-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 22px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 7px 24px rgba(7, 26, 69, .06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--blue);
+            font-size: 1.05rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo-badge {
+            display: grid;
+            width: 45px;
+            height: 45px;
+            place-items: center;
+            overflow: hidden;
+            background: var(--blue);
+            border-radius: 10px;
+        }
+
+        .logo-badge img {
+            width: 39px;
+            height: 39px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--blue);
+            font-size: .88rem;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 16px;
+            color: var(--blue);
+            background: var(--yellow);
+            border-radius: 7px;
+            font-size: .85rem;
+            font-weight: 800;
+        }
+
+        .nav-button:hover {
+            background: #ffd94c;
+        }
+
+        .menu-toggle {
+            display: none;
+            padding: 8px;
+            color: var(--blue);
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 78px 6% 125px;
+            color: var(--white);
+            background:
+                radial-gradient(circle at 90% 15%, rgba(247, 201, 40, .22), transparent 24%),
+                linear-gradient(135deg, var(--blue), var(--blue-light));
+        }
+
+        .hero::after {
+            position: absolute;
+            right: -130px;
+            bottom: -210px;
+            width: 430px;
+            height: 430px;
+            content: "";
+            border: 65px solid rgba(247, 201, 40, .14);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 16px;
+            color: var(--yellow);
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 32px;
+            height: 3px;
+            content: "";
+            background: var(--yellow);
+        }
+
+        h1 {
+            max-width: 650px;
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--yellow);
+        }
+
+        .hero-text {
+            max-width: 590px;
+            margin: 22px 0 30px;
+            color: rgba(255, 255, 255, .82);
+            font-size: 1.05rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 19px;
+            border-radius: 7px;
+            font-weight: 800;
+        }
+
+        .primary-button {
+            color: var(--blue);
+            background: var(--yellow);
+        }
+
+        .secondary-button {
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, .35);
+        }
+
+        .primary-button:hover,
+        .secondary-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: block;
+            width: min(100%, 520px);
+            max-height: 370px;
+            margin: auto;
+            object-fit: cover;
+            border: 9px solid rgba(255, 255, 255, .9);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .22);
+        }
+
+        .services {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            max-width: 1200px;
+            margin: -65px auto 75px;
+            padding: 0 6%;
+        }
+
+        .service-card {
+            min-height: 190px;
+            padding: 27px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--yellow);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .service-card i {
+            margin-bottom: 14px;
+            color: var(--blue-light);
+            font-size: 2rem;
+        }
+
+        .service-card h2 {
+            margin-bottom: 9px;
+            color: var(--blue);
+            font-size: 1.16rem;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: .93rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 1080px;
+            margin: 0 auto 75px;
+            padding: 0 6%;
+        }
+
+        .content-card {
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 10px 28px rgba(7, 26, 69, .06);
+        }
+
+        .content-card h2 {
+            margin-bottom: 16px;
+            color: var(--blue);
+            font-size: 1.5rem;
+        }
+
+        .content-card h2::after {
+            display: block;
+            width: 42px;
+            height: 3px;
+            margin-top: 8px;
+            content: "";
+            background: var(--yellow);
+        }
+
+        .service-list {
+            display: grid;
+            gap: 11px;
+            list-style: none;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--muted);
+        }
+
+        .service-list i {
+            margin-top: 5px;
+            color: var(--yellow);
+        }
+
+        .trust-card {
+            color: var(--white);
+            background: var(--blue);
+        }
+
+        .trust-card h2 {
+            color: var(--white);
+        }
+
+        .trust-card p {
+            color: rgba(255, 255, 255, .78);
+        }
+
+        .contact {
+            max-width: 1080px;
+            margin: 0 auto 75px;
+            padding: 42px 6%;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--blue-light), var(--blue));
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 9px;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+        }
+
+        .contact p {
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .contact a {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 20px;
+            padding: 13px 20px;
+            color: var(--blue);
+            background: var(--yellow);
+            border-radius: 7px;
+            font-weight: 800;
+        }
+
+        footer {
+            padding: 24px;
+            color: rgba(255, 255, 255, .8);
+            background: var(--blue);
+            text-align: center;
+            font-size: .88rem;
+        }
+
+        @media (max-width: 900px) {
+            .top-bar {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .eyebrow {
+                justify-content: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-image {
+                width: min(100%, 600px);
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 12px 4%;
+            }
+
+            .nav-container {
+                padding: 0 14px;
+            }
+
+            .logo {
+                max-width: 78%;
+                font-size: .86rem;
+            }
+
+            .logo-badge {
+                width: 40px;
+                height: 40px;
+                flex-shrink: 0;
+            }
+
+            .logo-badge img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-links,
+            .nav-button {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links.show {
+                position: absolute;
+                top: calc(100% + 9px);
+                right: 0;
+                left: 0;
+                z-index: 20;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.show a {
+                display: block;
+                padding: 12px;
+                border-radius: 6px;
+            }
+
+            .nav-links.show a:hover {
+                background: var(--yellow-light);
+            }
+
+            .hero {
+                padding: 58px 6% 105px;
+            }
+
+            .hero-text {
+                font-size: .98rem;
+            }
+
+            .hero-actions a {
+                width: 100%;
+            }
+
+            .services {
+                margin-top: -45px;
+                padding: 0 5%;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                padding: 0 5%;
+            }
+
+            .content-card {
+                padding: 24px;
+            }
+
+            .contact {
+                margin-right: 5%;
+                margin-left: 5%;
+                padding: 35px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <i class="fas fa-shield-halved"></i>
+        Reliable technology support for individuals and growing businesses
+    </div>
+
+    <header>
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">
+                    <img src="LOGO.png" alt="B-Tech Digital Solutions logo">
+                </span>
+                B-TECH DIGITAL SOLUTIONS
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our services.html">Our Services</a></li>
+                <li><a href="graphics and branding.html">Graphics &amp; Branding</a></li>
+                <li><a href="IT SERVICES.html">IT Support</a></li>
+            </ul>
+
+            <a class="nav-button" href="mailto:sallieukamara2003@gmail.com">
+                Contact Us <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navLinks"
+                aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div>
+                    <p class="eyebrow">Professional IT Support</p>
+                    <h1>Technology that keeps your <span>business moving.</span></h1>
+                    <p class="hero-text">
+                        Fast, reliable, and affordable IT support for individuals,
+                        entrepreneurs, and companies. We solve technology problems
+                        clearly and efficiently.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="primary-button" href="https://wa.me/23288877469" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i>
+                            Get IT Help
+                        </a>
+                        <a class="secondary-button" href="#services">
+                            Explore Services <i class="fas fa-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <img class="hero-image" src="complaint.jpg" alt="B-Tech Digital Solutions IT support">
+            </div>
+        </section>
+
+        <section class="services" id="services" aria-label="IT support highlights">
+            <article class="service-card">
+                <i class="fas fa-laptop-medical"></i>
+                <h2>Fast Problem Solving</h2>
+                <p>We diagnose technology issues quickly and provide practical solutions without unnecessary technical jargon.</p>
+            </article>
+
+            <article class="service-card">
+                <i class="fas fa-network-wired"></i>
+                <h2>Business Technology</h2>
+                <p>Keep your computers, networks, websites, email, and business software working properly.</p>
+            </article>
+
+            <article class="service-card">
+                <i class="fas fa-user-shield"></i>
+                <h2>Dependable Support</h2>
+                <p>Receive honest advice, clear explanations, and support you can rely on when you need it.</p>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="content-card">
+                <h2>Our IT Services</h2>
+                <ul class="service-list">
+                    <li><i class="fas fa-check-circle"></i> Computer repair, maintenance, and speed optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Virus removal, antivirus installation, and software updates</li>
+                    <li><i class="fas fa-check-circle"></i> Hardware upgrades and network installation</li>
+                    <li><i class="fas fa-check-circle"></i> Website support, domain setup, hosting, and email configuration</li>
+                    <li><i class="fas fa-check-circle"></i> Microsoft Office and accounting software support</li>
+                    <li><i class="fas fa-check-circle"></i> Data backup and recovery</li>
+                    <li><i class="fas fa-check-circle"></i> Basic computer and internet training</li>
+                    <li><i class="fas fa-check-circle"></i> Remote support for eligible issues</li>
+                </ul>
+            </article>
+
+            <article class="content-card trust-card">
+                <h2>Why Businesses Trust Us</h2>
+                <ul class="service-list">
+                    <li><i class="fas fa-check-circle"></i> Quick response time</li>
+                    <li><i class="fas fa-check-circle"></i> Honest diagnostics with no technical jargon</li>
+                    <li><i class="fas fa-check-circle"></i> Simple explanations and dependable solutions</li>
+                    <li><i class="fas fa-check-circle"></i> Affordable support for businesses of every size</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="contact">
+            <h2>Need Technology Support?</h2>
+            <p>Monday–Saturday: 8 AM–6 PM</p>
+            <p>Emergency assistance is available through WhatsApp.</p>
+            <a href="https://wa.me/23288877469" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp: +232 888 77469
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 B-Tech Digital Solutions. All rights reserved.
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("show");
+
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fas fa-xmark"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>

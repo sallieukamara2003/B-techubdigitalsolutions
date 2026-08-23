@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="B-Tech Digital Solutions provides professional graphics, branding, and digital design services.">
+    <title>Graphics &amp; Branding | B-Tech Digital Solutions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --navy: #071a45;
+            --blue: #123b82;
+            --blue-light: #1677d2;
+            --yellow: #f7c928;
+            --yellow-light: #fff8d8;
+            --white: #ffffff;
+            --text: #26364a;
+            --muted: #64708a;
+            --border: #dce8f5;
+            --background: #f7f9fd;
+            --shadow: 0 18px 45px rgba(7, 26, 69, .12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-width: 320px;
+            color: var(--text);
+            background: var(--background);
+            font-family: "DM Sans", Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .top-bar {
+            padding: 9px 6%;
+            color: rgba(255, 255, 255, .85);
+            background: var(--navy);
+            text-align: right;
+            font-size: .82rem;
+        }
+
+        .top-bar i {
+            margin-right: 7px;
+            color: var(--yellow);
+        }
+
+        header {
+            padding: 18px 6%;
+            background: var(--white);
+        }
+
+        .nav-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 22px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 7px 24px rgba(7, 26, 69, .06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--navy);
+            font-size: 1rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo-badge {
+            display: grid;
+            width: 45px;
+            height: 45px;
+            place-items: center;
+            overflow: hidden;
+            background: var(--navy);
+            border-radius: 10px;
+        }
+
+        .logo-badge img {
+            width: 39px;
+            height: 39px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--navy);
+            font-size: .88rem;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--blue-light);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 16px;
+            color: var(--navy);
+            background: var(--yellow);
+            border-radius: 7px;
+            font-size: .84rem;
+            font-weight: 800;
+        }
+
+        .nav-button:hover {
+            background: #ffd94c;
+        }
+
+        .menu-toggle {
+            display: none;
+            padding: 8px;
+            color: var(--navy);
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        main {
+            width: min(1150px, 90%);
+            margin: auto;
+            padding: 70px 0 80px;
+        }
+
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 65px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 15px;
+            color: var(--blue-light);
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 32px;
+            height: 3px;
+            content: "";
+            background: var(--yellow);
+        }
+
+        h1,
+        h2 {
+            color: var(--navy);
+            line-height: 1.12;
+        }
+
+        h1 {
+            max-width: 650px;
+            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--blue-light);
+        }
+
+        h2 {
+            margin-bottom: 18px;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+        }
+
+        h2::after {
+            display: block;
+            width: 50px;
+            height: 4px;
+            margin-top: 9px;
+            content: "";
+            border-radius: 4px;
+            background: var(--yellow);
+        }
+
+        .lead {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 25px;
+            padding: 13px 21px;
+            color: var(--navy);
+            background: var(--yellow);
+            border-radius: 7px;
+            box-shadow: 0 5px 0 #d99d00;
+            font-weight: 800;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 #d99d00;
+        }
+
+        .logo-card {
+            position: relative;
+            padding: 25px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-card::before {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 75px;
+            height: 75px;
+            content: "";
+            border-top: 5px solid var(--yellow);
+            border-right: 5px solid var(--yellow);
+            border-radius: 0 18px 0 0;
+        }
+
+        .profile-photo {
+            display: block;
+            width: 100%;
+            max-height: 430px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 32px;
+            background: rgba(255, 255, 255, .9);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--yellow);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(7, 26, 69, .06);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px 30px;
+        }
+
+        .service {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service i {
+            margin-top: 4px;
+            color: var(--yellow);
+            font-size: 1.2rem;
+        }
+
+        .service strong {
+            display: block;
+            color: var(--blue);
+            font-size: 1rem;
+        }
+
+        .service span {
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .reasons li {
+            padding: 22px 18px;
+            color: var(--navy);
+            background: var(--yellow-light);
+            border: 1px solid #f3e4a5;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .reasons i {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--blue-light);
+            font-size: 1.6rem;
+        }
+
+        .cta {
+            margin-top: 60px;
+            padding: 40px 25px;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--blue), var(--navy));
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--white);
+        }
+
+        .cta p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 20px;
+            color: var(--navy);
+            background: var(--yellow);
+            border-radius: 7px;
+            font-weight: 800;
+        }
+
+        footer {
+            padding: 25px;
+            color: rgba(255, 255, 255, .8);
+            background: var(--navy);
+            border-top: 4px solid var(--yellow);
+            text-align: center;
+            font-size: .88rem;
+        }
+
+        @media (max-width: 850px) {
+            .top-bar {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                text-align: center;
+            }
+
+            .hero .eyebrow {
+                justify-content: center;
+            }
+
+            .lead {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .button {
+                justify-content: center;
+            }
+
+            .logo-card {
+                max-width: 600px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .reasons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 12px 4%;
+            }
+
+            .nav-container {
+                padding: 0 14px;
+            }
+
+            .logo {
+                max-width: 78%;
+                font-size: .84rem;
+            }
+
+            .logo-badge {
+                width: 40px;
+                height: 40px;
+                flex-shrink: 0;
+            }
+
+            .logo-badge img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-links,
+            .nav-button {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links.show {
+                position: absolute;
+                top: calc(100% + 9px);
+                right: 0;
+                left: 0;
+                z-index: 20;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.show a {
+                display: block;
+                padding: 12px;
+                border-radius: 6px;
+            }
+
+            .nav-links.show a:hover {
+                background: var(--yellow-light);
+            }
+
+            main {
+                width: 90%;
+                padding: 48px 0 60px;
+            }
+
+            .hero {
+                margin-bottom: 48px;
+            }
+
+            h1 {
+                font-size: clamp(2.35rem, 12vw, 4rem);
+            }
+
+            .lead {
+                font-size: 1rem;
+            }
+
+            .logo-card {
+                padding: 18px;
+            }
+
+            .section {
+                padding: 24px 20px;
+            }
+
+            .service {
+                gap: 11px;
+            }
+
+            .cta {
+                margin-top: 48px;
+                padding: 34px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <i class="fas fa-palette"></i>
+        Creative branding and digital design for growing businesses
+    </div>
+
+    <header>
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="INDEX.html" class="logo">
+                <span class="logo-badge">
+                    <img src="LOGO.png" alt="B-Tech Digital Solutions logo">
+                </span>
+                B-TECH DIGITAL SOLUTIONS
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our services.html">Our Services</a></li>
+                <li><a href="graphics and branding.html">Graphics &amp; Branding</a></li>
+                <li><a href="IT SERVICES.html">IT Support</a></li>
+            </ul>
+
+            <a class="nav-button" href="mailto:sallieukamara2003@gmail.com">
+                Contact Us <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navLinks"
+                aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Graphics &amp; Branding</p>
+
+                <h1>
+                    Design that makes your
+                    <span>brand stand out.</span>
+                </h1>
+
+                <p class="lead">
+                    Creative technology and digital solutions for ambitious businesses.
+                    We turn your ideas into a clear, memorable, and professional visual identity.
+                </p>
+
+                <a class="button" href="#services">
+                    Explore Our Services <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+
+            <div class="logo-card">
+                <img
+                    class="profile-photo"
+                    src="LOGO.png"
+                    alt="B-Tech Digital Solutions logo">
+            </div>
+        </section>
+
+        <section class="section" id="services">
+            <h2>What We Offer</h2>
+
+            <div class="services">
+                <article class="service">
+                    <i class="fas fa-pen-ruler"></i>
+                    <div>
+                        <strong>Logo &amp; Brand Identity</strong>
+                        <span>Unique logos, color schemes, and brand guidelines.</span>
+                    </div>
+                </article>
+
+                <article class="service">
+                    <i class="fas fa-address-card"></i>
+                    <div>
+                        <strong>Business Card Design</strong>
+                        <span>Professional cards that leave a lasting impression.</span>
+                    </div>
+                </article>
+
+                <article class="service">
+                    <i class="fas fa-image"></i>
+                    <div>
+                        <strong>Flyer &amp; Poster Design</strong>
+                        <span>Promote your events, products, and services.</span>
+                    </div>
+                </article>
+
+                <article class="service">
+                    <i class="fas fa-newspaper"></i>
+                    <div>
+                        <strong>Brochure &amp; Banner Design</strong>
+                        <span>Clean layouts for print and digital use.</span>
+                    </div>
+                </article>
+
+                <article class="service">
+                    <i class="fas fa-bullhorn"></i>
+                    <div>
+                        <strong>Social Media &amp; Print Media</strong>
+                        <span>Branded designs for t-shirts, mugs, billboards, and more.</span>
+                    </div>
+                </article>
+
+                <article class="service">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Digital Content Design</strong>
+                        <span>Professional visual content for websites and online campaigns.</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why Choose Us</h2>
+
+            <ul class="reasons">
+                <li>
+                    <i class="fas fa-lightbulb"></i>
+                    We do not just design—we build brands.
+                </li>
+
+                <li>
+                    <i class="fas fa-bullseye"></i>
+                    Every design is tailored to your goals.
+                </li>
+
+                <li>
+                    <i class="fas fa-users"></i>
+                    Professional visuals that connect with your audience.
+                </li>
+            </ul>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to build a stronger brand?</h2>
+            <p>Let us create professional visuals that help your business get noticed.</p>
+
+            <a href="https://wa.me/23288877469">
+                Start a Conversation <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 B-Tech Digital Solutions. All rights reserved.
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("show");
+
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fas fa-xmark"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>

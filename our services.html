@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about B-Tech Digital Solutions, a trusted provider of digital, technology, and branding solutions.">
+    <title>About Us | B-Tech Digital Solutions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --navy: #071a45;
+            --blue: #123b82;
+            --blue-light: #1677d2;
+            --yellow: #f7c928;
+            --yellow-light: #fff8d8;
+            --white: #ffffff;
+            --text: #26364a;
+            --muted: #64708a;
+            --border: #e3eaf4;
+            --background: #f7f9fd;
+            --shadow: 0 18px 45px rgba(7, 26, 69, .12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-width: 320px;
+            color: var(--text);
+            background: var(--background);
+            font-family: "DM Sans", Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .top-bar {
+            padding: 9px 6%;
+            color: rgba(255, 255, 255, .85);
+            background: var(--navy);
+            text-align: right;
+            font-size: .82rem;
+        }
+
+        .top-bar i {
+            margin-right: 7px;
+            color: var(--yellow);
+        }
+
+        header {
+            padding: 18px 6%;
+            background: var(--white);
+        }
+
+        .nav-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 22px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 7px 24px rgba(7, 26, 69, .06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--navy);
+            font-size: 1rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo-badge {
+            display: grid;
+            width: 45px;
+            height: 45px;
+            place-items: center;
+            overflow: hidden;
+            background: var(--navy);
+            border-radius: 10px;
+        }
+
+        .logo-badge img {
+            width: 39px;
+            height: 39px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--navy);
+            font-size: .88rem;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--blue-light);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 16px;
+            color: var(--navy);
+            background: var(--yellow);
+            border-radius: 7px;
+            font-size: .84rem;
+            font-weight: 800;
+        }
+
+        .nav-button:hover {
+            background: #ffd94c;
+        }
+
+        .menu-toggle {
+            display: none;
+            padding: 8px;
+            color: var(--navy);
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 6% 105px;
+            color: var(--white);
+            background:
+                radial-gradient(circle at 85% 15%, rgba(247, 201, 40, .22), transparent 25%),
+                linear-gradient(135deg, var(--navy), var(--blue));
+            text-align: center;
+        }
+
+        .page-hero::after {
+            position: absolute;
+            right: -130px;
+            bottom: -210px;
+            width: 430px;
+            height: 430px;
+            content: "";
+            border: 65px solid rgba(247, 201, 40, .14);
+            border-radius: 50%;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 15px;
+            color: var(--yellow);
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            width: 28px;
+            height: 3px;
+            content: "";
+            background: var(--yellow);
+        }
+
+        .page-hero h1 {
+            margin-bottom: 15px;
+            font-size: clamp(2.5rem, 6vw, 4.7rem);
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+
+        .page-hero h1 span {
+            color: var(--yellow);
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, .82);
+            font-size: 1.08rem;
+        }
+
+        main {
+            width: min(1150px, 90%);
+            margin: auto;
+            padding: 75px 0;
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .section-label {
+            margin-bottom: 8px;
+            color: var(--blue-light);
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-bottom: 16px;
+            color: var(--navy);
+            font-size: clamp(1.7rem, 3vw, 2.25rem);
+            line-height: 1.2;
+        }
+
+        h2::after {
+            display: block;
+            width: 48px;
+            height: 4px;
+            margin-top: 9px;
+            content: "";
+            border-radius: 4px;
+            background: var(--yellow);
+        }
+
+        .intro p,
+        .section > p {
+            color: var(--muted);
+        }
+
+        .intro strong,
+        .founder strong {
+            color: var(--blue);
+        }
+
+        .photo {
+            padding: 10px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .photo img {
+            display: block;
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 13px;
+        }
+
+        .section {
+            margin-top: 70px;
+        }
+
+        .section > p {
+            max-width: 850px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .info-card {
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--yellow);
+            border-radius: 14px;
+            box-shadow: 0 10px 28px rgba(7, 26, 69, .07);
+        }
+
+        .info-card h2 {
+            font-size: 1.55rem;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        .founder {
+            padding: 34px 38px;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--blue), var(--navy));
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .founder h2 {
+            color: var(--white);
+        }
+
+        .founder h2::after {
+            background: var(--yellow);
+        }
+
+        .founder p {
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .founder strong {
+            color: var(--yellow);
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .value {
+            padding: 30px 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--yellow);
+            border-radius: 13px;
+            box-shadow: 0 8px 23px rgba(7, 26, 69, .07);
+            text-align: center;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .value:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .value i {
+            margin-bottom: 14px;
+            color: var(--blue-light);
+            font-size: 2rem;
+        }
+
+        .value h3 {
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-size: 1.2rem;
+        }
+
+        .value p {
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        .cta {
+            margin-top: 70px;
+            padding: 42px 25px;
+            color: var(--white);
+            background: var(--yellow);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--navy);
+        }
+
+        .cta h2::after {
+            display: none;
+        }
+
+        .cta p {
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 20px;
+            color: var(--white);
+            background: var(--navy);
+            border-radius: 7px;
+            font-weight: 800;
+        }
+
+        footer {
+            padding: 25px;
+            color: rgba(255, 255, 255, .8);
+            background: var(--navy);
+            border-top: 4px solid var(--yellow);
+            text-align: center;
+            font-size: .88rem;
+        }
+
+        @media (max-width: 850px) {
+            .top-bar {
+                display: none;
+            }
+
+            .intro,
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .intro {
+                text-align: center;
+            }
+
+            .intro h2::after {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .photo {
+                max-width: 620px;
+                width: 100%;
+                margin: auto;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 12px 4%;
+            }
+
+            .nav-container {
+                padding: 0 14px;
+            }
+
+            .logo {
+                max-width: 78%;
+                font-size: .84rem;
+            }
+
+            .logo-badge {
+                width: 40px;
+                height: 40px;
+                flex-shrink: 0;
+            }
+
+            .logo-badge img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-links,
+            .nav-button {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links.show {
+                position: absolute;
+                top: calc(100% + 9px);
+                right: 0;
+                left: 0;
+                z-index: 20;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.show a {
+                display: block;
+                padding: 12px;
+                border-radius: 6px;
+            }
+
+            .nav-links.show a:hover {
+                background: var(--yellow-light);
+            }
+
+            .page-hero {
+                padding: 60px 6% 78px;
+            }
+
+            main {
+                width: 90%;
+                padding: 52px 0;
+            }
+
+            .photo img {
+                height: 180px;
+            }
+
+            .section {
+                margin-top: 52px;
+            }
+
+            .founder {
+                padding: 27px 23px;
+            }
+
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                margin-top: 52px;
+                padding: 34px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <i class="fas fa-shield-halved"></i>
+        Strategic digital solutions for growing organizations
+    </div>
+
+    <header>
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="INDEX.html" class="logo">
+                <span class="logo-badge">
+                    <img src="LOGO.png" alt="B-Tech Digital Solutions logo">
+                </span>
+                B-TECH DIGITAL SOLUTIONS
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our services.html">Our Services</a></li>
+                <li><a href="graphics and branding.html">Graphics &amp; Branding</a></li>
+                <li><a href="IT SERVICES.html">IT Support</a></li>
+            </ul>
+
+            <a class="nav-button" href="mailto:sallieukamara2003@gmail.com">
+                Contact Us <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navLinks"
+                aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <p class="eyebrow">About Our Company</p>
+            <h1>Building better <span>digital possibilities.</span></h1>
+            <p>
+                Strategic technology, digital transformation, and brand solutions
+                designed for ambitious businesses and organizations.
+            </p>
+        </div>
+    </section>
+
+    <main>
+        <section class="intro">
+            <div>
+                <p class="section-label">Who We Are</p>
+                <h2>Your trusted digital solutions partner</h2>
+                <p>
+                    <strong>B-TECH DIGITAL SOLUTIONS</strong> is a technology and creative
+                    services company founded by Sallieu Kamara, CEO and Founder.
+                    We support businesses, startups, and organizations with reliable
+                    digital solutions that strengthen their operations, visibility,
+                    and market presence.
+                </p>
+            </div>
+
+            <div class="photo">
+                <img src="package copy.jpg" alt="B-Tech Digital Solutions brand">
+            </div>
+        </section>
+
+        <section class="section two-column">
+            <article class="info-card">
+                <p class="section-label">What Drives Us</p>
+                <h2>Our Mission</h2>
+                <p>
+                    To deliver dependable, innovative, and business-focused digital
+                    solutions that improve operational efficiency, enhance customer
+                    engagement, and support sustainable growth.
+                </p>
+            </article>
+
+            <article class="info-card">
+                <p class="section-label">Where We Are Going</p>
+                <h2>Our Vision</h2>
+                <p>
+                    To become a leading digital solutions provider in Sierra Leone and
+                    beyond, recognized for professional service delivery, technological
+                    excellence, and measurable client outcomes.
+                </p>
+            </article>
+        </section>
+
+        <section class="section founder">
+            <p class="section-label">Leadership</p>
+            <h2>Experience guided by purpose</h2>
+            <p><strong>SALLIEU KAMARA — CEO AND FOUNDER</strong></p>
+            <p>
+                With experience in website development, software solutions, and
+                corporate branding, Mr. Sallieu leads B-Tech Digital Solutions with
+                a commitment to practical innovation, quality execution, and
+                long-term client partnerships.
+            </p>
+        </section>
+
+        <section class="section">
+            <p class="section-label">What We Believe In</p>
+            <h2>Our Core Values</h2>
+
+            <div class="values">
+                <article class="value">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>
+                        We apply forward-thinking ideas and technologies to solve
+                        business challenges.
+                    </p>
+                </article>
+
+                <article class="value">
+                    <i class="fas fa-award"></i>
+                    <h3>Excellence</h3>
+                    <p>
+                        We maintain high standards across every project, service,
+                        and client interaction.
+                    </p>
+                </article>
+
+                <article class="value">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Integrity</h3>
+                    <p>
+                        We build lasting relationships through transparency,
+                        accountability, and trust.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to grow with technology?</h2>
+            <p>Let us help you turn your ideas into practical digital solutions.</p>
+            <a href="https://wa.me/23288877469">
+                Start a Conversation <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 B-Tech Digital Solutions. All rights reserved.
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("show");
+
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fas fa-xmark"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>
