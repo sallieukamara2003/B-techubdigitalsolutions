@@ -152,6 +152,8 @@
             overflow: hidden;
             background: var(--navy);
             border-radius: 10px;
+            animation: floatBadge 4s ease-in-out infinite;
+            box-shadow: 0 10px 25px rgba(7, 26, 69, 0.18);
         }
 
         .logo-badge img {
@@ -193,6 +195,7 @@
 
         .btn-contact,
         .btn-whatsapp {
+            position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -202,6 +205,25 @@
             transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
             border: none;
             cursor: pointer;
+            overflow: hidden;
+        }
+
+        .btn-contact::before,
+        .btn-whatsapp::before {
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            content: "";
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            transition: left .7s ease;
+        }
+
+        .btn-contact:hover::before,
+        .btn-whatsapp:hover::before {
+            left: 130%;
         }
 
         .btn-contact {
@@ -253,6 +275,7 @@
             content: "";
             border: 70px solid rgba(247, 201, 40, .12);
             border-radius: 50%;
+            animation: pulseGlow 7s ease-in-out infinite alternate;
         }
 
         .hero-content,
@@ -325,6 +348,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;
+            animation: floatImage 5s ease-in-out infinite;
         }
 
         .arch-background {
@@ -342,6 +366,8 @@
             max-height: 460px;
             object-fit: cover;
             object-position: center top;
+            border-radius: 20px 20px 12px 12px;
+            box-shadow: 0 22px 45px rgba(7, 26, 69, 0.16);
         }
 
         .ceo-badge {
@@ -354,6 +380,7 @@
             font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
+            border-radius: 0 0 16px 16px;
         }
 
         .features-container {
@@ -375,11 +402,12 @@
             border-top: 4px solid var(--yellow);
             border-radius: 14px;
             box-shadow: var(--shadow);
-            transition: transform .25s ease;
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-7px) scale(1.01);
+            box-shadow: 0 26px 55px rgba(7, 26, 69, 0.14);
         }
 
         .feature-card.main-box {
@@ -422,12 +450,63 @@
             color: var(--yellow);
         }
 
+        .reveal {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-left {
+            transform: translateX(-35px);
+        }
+
+        .reveal-right {
+            transform: translateX(35px);
+        }
+
+        .reveal-up {
+            transform: translateY(28px);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
         footer {
             padding: 25px;
             color: rgba(255, 255, 255, .8);
             background: var(--navy);
             text-align: center;
             font-size: .9rem;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                transform: scale(0.98);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatBadge {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         @media (max-width: 950px) {
@@ -526,6 +605,22 @@
                 padding: 0 5%;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 
@@ -579,7 +674,7 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content">
+            <div class="hero-content reveal reveal-left">
                 <p class="hero-brand-tag">B-Tech Digital Solutions</p>
 
                 <h1 class="hero-title">
@@ -599,7 +694,7 @@
                 </a>
             </div>
 
-            <div class="hero-image-container">
+            <div class="hero-image-container reveal reveal-right">
                 <div class="arch-background">
                     <img src="MAIN IMAGE.jpg" alt="Sallieu Kamara, CEO and Founder of B-Tech Digital Solutions" width="390" height="460" loading="lazy">
                 </div>
@@ -608,7 +703,7 @@
         </section>
 
         <section class="features-container" aria-label="Featured services">
-            <article class="feature-card main-box">
+            <article class="feature-card main-box reveal reveal-up">
                 <div class="feature-text">
                     <h3>Our Featured Services</h3>
                     <ul>
@@ -620,7 +715,7 @@
                 </div>
             </article>
 
-            <article class="feature-card">
+            <article class="feature-card reveal reveal-up">
                 <div class="feature-icon">
                     <i class="fas fa-pen-ruler"></i>
                 </div>
@@ -630,7 +725,7 @@
                 </div>
             </article>
 
-            <article class="feature-card">
+            <article class="feature-card reveal reveal-up">
                 <div class="feature-icon">
                     <i class="fas fa-headset"></i>
                 </div>
@@ -666,6 +761,23 @@
                         navLinks.classList.remove("show");
                         menuToggle.setAttribute("aria-expanded", "false");
                     });
+                });
+            }
+
+            const revealElements = document.querySelectorAll('.reveal');
+
+            if (revealElements.length) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.18 });
+
+                revealElements.forEach((element) => {
+                    revealObserver.observe(element);
                 });
             }
         });
