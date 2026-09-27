@@ -1,4 +1,3 @@
-
 <!-- filepath: Untitled-1 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -6,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="B-Tech Digital Solutions provides professional website design, branding, software development, and IT support services.">
+    <meta name="theme-color" content="#071a45">
     <title>B-Tech Digital Solutions | Grow Your Business</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <style>
         :root {
@@ -41,13 +42,18 @@
             overflow-x: hidden;
             color: var(--text);
             background: #f8faff;
-            font-family: "DM Sans", Arial, sans-serif;
+            font-family: "Plus Jakarta Sans", Arial, sans-serif;
             line-height: 1.6;
         }
 
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         .top-bar {
@@ -183,6 +189,8 @@
             border-radius: 7px;
             font-weight: 700;
             transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-contact {
@@ -207,6 +215,8 @@
             color: var(--navy);
             cursor: pointer;
             font-size: 1.45rem;
+            background: none;
+            border: none;
         }
 
         .hero {
@@ -273,7 +283,6 @@
 
         .script-text {
             color: var(--navy-light);
-            font-family: "Playfair Display", Georgia, serif;
             font-style: italic;
         }
 
@@ -308,21 +317,21 @@
         }
 
         .arch-background {
-    width: min(100%, 390px);
-    padding: 0;
-    overflow: hidden;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-}
+            width: min(100%, 390px);
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+        }
 
-.arch-background img {
-    display: block;
-    width: 100%;
-    max-height: 460px;
-    object-fit: cover;
-    object-position: center top;
-}
+        .arch-background img {
+            display: block;
+            width: 100%;
+            max-height: 460px;
+            object-fit: cover;
+            object-position: center top;
+        }
 
         .ceo-badge {
             width: min(100%, 390px);
@@ -533,7 +542,7 @@
         <nav class="nav-container" aria-label="Main navigation">
             <a href="index.html" class="logo">
                 <div class="logo-badge">
-                    <img src="LOGO.png" alt="B-Tech Digital Solutions logo">
+                    <img src="LOGO.png" alt="B-Tech Digital Solutions logo" width="44" height="44" loading="lazy">
                 </div>
                 <span>B-TECH <strong>DIGITAL SOLUTIONS</strong></span>
             </a>
@@ -573,7 +582,7 @@
                     print media, and dependable IT solutions that help businesses stand out and grow.
                 </p>
 
-                <a href="https://wa.me/23288877469" target="_blank" rel="noopener" class="btn-whatsapp">
+                <a href="https://wa.me/23288877469" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
                     <i class="fab fa-whatsapp"></i>
                     Chat on WhatsApp
                 </a>
@@ -581,7 +590,7 @@
 
             <div class="hero-image-container">
                 <div class="arch-background">
-                    <img src="MAIN IMAGE.jpg" alt="Sallieu Kamara, CEO and Founder of B-Tech Digital Solutions">
+                    <img src="MAIN IMAGE.jpg" alt="Sallieu Kamara, CEO and Founder of B-Tech Digital Solutions" width="390" height="460" loading="lazy">
                 </div>
                 <div class="ceo-badge">Sallieu Kamara — CEO &amp; Founder</div>
             </div>
@@ -627,19 +636,28 @@
     </footer>
 
     <script>
-        const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById("menuToggle");
+            const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("show");
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener("click", () => {
+                    const isOpen = navLinks.classList.toggle("show");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        isOpen ? "Close navigation menu" : "Open navigation menu"
+                    );
+                });
 
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-});
+                navLinks.querySelectorAll("a").forEach(link => {
+                    link.addEventListener("click", () => {
+                        navLinks.classList.remove("show");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
- 
