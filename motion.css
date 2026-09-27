@@ -1,0 +1,126 @@
+/* Shared animated spiral background for every site page. */
+
+:root {
+    --motion-navy: #071a45;
+    --motion-blue: #123b82;
+    --motion-yellow: #f7c928;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    position: fixed;
+    z-index: -1;
+    display: block;
+    width: min(58vw, 760px);
+    height: min(58vw, 760px);
+    content: "";
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: .07;
+    mix-blend-mode: multiply;
+}
+
+body::before {
+    top: -18rem;
+    right: -14rem;
+    background:
+        radial-gradient(circle at center, transparent 0 17%, rgba(247, 201, 40, .9) 17.2% 18%, transparent 18.2% 29%, rgba(16, 45, 104, .75) 29.2% 30%, transparent 30.2% 41%, rgba(247, 201, 40, .7) 41.2% 42%, transparent 42.2% 53%, rgba(16, 45, 104, .55) 53.2% 54%, transparent 54.2%),
+        conic-gradient(from 0deg, rgba(7, 26, 69, .8), rgba(247, 201, 40, .7), rgba(18, 59, 130, .75), rgba(7, 26, 69, .8));
+    animation: siteSpiralClockwise 28s linear infinite;
+}
+
+body::after {
+    bottom: -20rem;
+    left: -16rem;
+    background:
+        radial-gradient(circle at center, transparent 0 16%, rgba(16, 45, 104, .8) 16.2% 17%, transparent 17.2% 28%, rgba(247, 201, 40, .7) 28.2% 29%, transparent 29.2% 40%, rgba(16, 45, 104, .55) 40.2% 41%, transparent 41.2% 52%, rgba(247, 201, 40, .5) 52.2% 53%, transparent 53.2%),
+        conic-gradient(from 180deg, rgba(18, 59, 130, .75), rgba(247, 201, 40, .65), rgba(7, 26, 69, .8), rgba(18, 59, 130, .75));
+    animation: siteSpiralCounterClockwise 34s linear infinite;
+}
+
+main,
+.hero,
+.page-hero,
+section {
+    position: relative;
+}
+
+main::before,
+.hero::before,
+.page-hero::before {
+    position: absolute;
+    z-index: -1;
+    width: 14rem;
+    height: 14rem;
+    content: "";
+    pointer-events: none;
+    border: 1px solid rgba(247, 201, 40, .14);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 1.6rem rgba(247, 201, 40, .06),
+        0 0 0 3.2rem rgba(16, 45, 104, .04),
+        0 0 0 4.8rem rgba(247, 201, 40, .035);
+    animation: siteOrbit 18s ease-in-out infinite;
+}
+
+main::before {
+    top: 12rem;
+    right: 2%;
+}
+
+.hero::before,
+.page-hero::before {
+    top: 12%;
+    left: 4%;
+    opacity: .8;
+}
+
+@keyframes siteSpiralClockwise {
+    from { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    to { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes siteSpiralCounterClockwise {
+    from { transform: rotate(360deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.06); }
+    to { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes siteOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(1.5rem, -1rem) rotate(180deg); }
+}
+
+@media (max-width: 700px) {
+    body::before,
+    body::after {
+        width: 28rem;
+        height: 28rem;
+        opacity: .045;
+    }
+
+    main::before,
+    .hero::before,
+    .page-hero::before {
+        width: 9rem;
+        height: 9rem;
+        opacity: .55;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after,
+    main::before,
+    .hero::before,
+    .page-hero::before {
+        animation: none;
+    }
+}
